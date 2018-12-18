@@ -1,0 +1,51 @@
+ <script src="main.js"></script>   
+        <div class="container">
+        <div class="navbar">
+            <a href="#home">All IT books</a>
+            <div class="dropdown">
+                <button class="dropbtn">Categories 
+      <i class="fa fa-caret-down"></i>
+    </button>
+                <div class="dropdown-content" ng-repeat="category in categories">
+                    <a href="#">{{category.name}}</a>
+
+                </div>
+            </div>
+            <div class="get-cupon">
+                <a href="#home" class="right">GET COUPON</a>
+            </div>
+            <div class="search">
+                <input type="text" placeholder="Search.. " class="search-input" ng-model="searchBox.title">
+                <button type="submit" class="search-button"><i class="fa fa-search"></i></button>
+            </div>
+        </div>
+
+        <div class="advanced-search">
+            <a href="#" class="adv-search">Ads</a>
+            <a href="#" class="adv-search">Ads</a>
+            <a href="#" class="adv-search">Ads</a>
+            <a href="#" class="adv-search">Ads</a>
+            <a href="#" class="adv-search">Ads</a>
+            <a href="#" class="adv-search">Ads</a>
+            <a href="#" class="adv-search">Ads</a>
+            <a href="#" class="adv-search">Ads</a>
+        </div>
+        <div class="books">
+            <div class="aside">
+                <h3 ng-repeat="category in categories" class="aside-content"><a href="#">{{category.name}}</a></h3>
+            </div>
+            <div class="middle">
+                <div class="book" ng-repeat="book in books | filter:searchBox">
+                    <img ng-src="{{book.pic}}" class="book-pic">
+                    <h1 class="book-title"><a href={{"#book/"+book.id}}>{{book.title}}</a></h1>
+                    <p class="author">{{book.author}}</p>
+                    <p class="description">{{book.description}}</p>
+                    <div class="price">
+                        <p class="price-desc">{{book.price | currency : "€"}}</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
